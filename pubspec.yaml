@@ -32,6 +32,9 @@ dependencies:
   cupertino_icons: ^1.0.5
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -39,6 +42,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
+  build_runner: ^2.2.0
   flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
@@ -53,6 +57,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  # Used for localization
+  generate: true
 
   # To add assets to your application, add an assets section, like this:
   # assets:
