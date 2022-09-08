@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mangamaterial/core/utils/app_theme.helper.dart';
+import 'package:mangamaterial/core/extensions/context.extension.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppThemeHelper.getTheme,
       darkTheme: AppThemeHelper.getDarkTheme,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -72,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   const Icon(Icons.brightness_2_rounded),
                   Text(
-                    'Theme',
+                    context.trad.helloWorld,
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],
