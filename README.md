@@ -4,6 +4,10 @@ A new Flutter project.
 
 ## Generating files
 
+Generated files:
+
+1. navigation
+
 ```
 flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
