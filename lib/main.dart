@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mangamaterial/core/navigation/app.router.gr.dart';
 import 'package:mangamaterial/core/utils/app_theme.helper.dart';
+import 'package:mangamaterial/get_it.injector.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> _initApp() async {
+  /// Register AppRouter singleton (navigating without context available)
+  getIt.registerSingleton<AppRouter>(AppRouter());
 }
 
-final AppRouter _appRouter = AppRouter();
+void main() async {
+  await _initApp();
+
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final AppRouter appRouter = getIt<AppRouter>();
     return MaterialApp.router(
       title: 'Manga Material',
       debugShowCheckedModeBanner: false,
@@ -21,8 +28,8 @@ class MyApp extends StatelessWidget {
       darkTheme: AppThemeHelper.getDarkTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
     );
   }
 }
