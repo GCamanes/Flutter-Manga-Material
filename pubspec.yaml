@@ -65,6 +65,18 @@ flutter:
   # Used for localization
   generate: true
 
+  fonts:
+    - family: robotoLight
+      fonts:
+        - asset: assets/fonts/Roboto-Light.ttf
+    - family: robotoRegular
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+    - family: robotoMedium
+      fonts:
+        - asset: assets/fonts/Roboto-Medium.ttf
+
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
