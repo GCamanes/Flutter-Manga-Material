@@ -49,6 +49,7 @@ dev_dependencies:
   auto_route_generator: ^5.0.2
   build_runner: ^2.2.0
   flutter_lints: ^2.0.1
+  flutter_native_splash: ^2.2.9
   flutter_test:
     sdk: flutter
   injectable_generator: ^1.5.4
