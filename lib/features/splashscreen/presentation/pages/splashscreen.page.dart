@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:mangamaterial/core/navigation/app.router.dart';
+import 'package:mangamaterial/core/navigation/app.router.gr.dart';
 import 'package:mangamaterial/core/presentation/widget/loader.widget.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-class SplashscreenPage extends StatelessWidget {
+class SplashscreenPage extends StatefulWidget {
   const SplashscreenPage({Key? key}) : super(key: key);
+
+  @override
+  State<SplashscreenPage> createState() => _SplashscreenPageState();
+}
+
+class _SplashscreenPageState extends State<SplashscreenPage> {
+  @override
+  void initState() {
+    _goToMainPage();
+    super.initState();
+  }
+
+  void _goToMainPage() {
+    Future<void>.delayed(
+      const Duration(seconds: 2),
+      () => RouterHelper.router.replace(const MainRoute()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
