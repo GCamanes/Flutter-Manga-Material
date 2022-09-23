@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mangamaterial/core/extensions/color.extension.dart';
 import 'package:mangamaterial/core/utils/app.colors.dart';
 
@@ -45,6 +46,19 @@ abstract class AppThemeHelper {
         appBarTheme: const AppBarTheme(color: AppColors.surface),
         textTheme: textTheme(),
       );
+
+  static void setAndroidSystemNavigationBar(bool isDark) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        systemNavigationBarColor:
+            isDark ? AppColors.surface : AppColors.white,
+        systemNavigationBarDividerColor:
+            isDark ? AppColors.white : AppColors.black,
+        systemNavigationBarIconBrightness:
+            isDark ? Brightness.light : Brightness.dark,
+      ),
+    );
+  }
 
   static TextTheme textTheme() => const TextTheme(
         headline1: TextStyle(
