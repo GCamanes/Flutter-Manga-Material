@@ -18,6 +18,7 @@ class SettingsCategoryWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         SettingsElementWidget(
+          bottomBorder: false,
           child: Text(
             title,
             style: Theme.of(context).textTheme.subtitle2,

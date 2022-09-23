@@ -2,5 +2,8 @@
   "home": "Accueil",
   "favorites": "Favoris",
   "settings": "Paramètres",
-  "languages": "Langages"
+  "languages": "Langages",
+
+  "en": "Anglais",
+  "fr": "Français"
 }

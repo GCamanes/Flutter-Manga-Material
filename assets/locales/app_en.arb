@@ -2,5 +2,8 @@
   "home": "Home",
   "favorites": "Favorites",
   "settings": "Settings",
-  "languages": "Languages"
+  "languages": "Languages",
+
+  "en": "English",
+  "fr": "French"
 }

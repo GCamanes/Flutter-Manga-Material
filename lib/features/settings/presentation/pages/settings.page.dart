@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mangamaterial/core/extensions/context.extension.dart';
-import 'package:mangamaterial/features/settings/presentation/widgets/settings_category.widget.dart';
+import 'package:mangamaterial/features/settings/presentation/widgets/languages_settings.widget.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -11,11 +11,8 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(title: Text(context.trad.settings)),
       body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
-            SettingsCategoryWidget(
-              title: context.trad.languages,
-              children: [],
-            ),
+          children: const <Widget>[
+            LanguagesSettingsWidget(),
           ],
         ),
       ),

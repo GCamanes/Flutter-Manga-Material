@@ -7,4 +7,13 @@ extension ContextExtension on BuildContext {
   List<Locale> get locales => AppLocalizations.supportedLocales;
 
   AppLocalizations get trad => AppLocalizations.of(this)!;
+
+  String getLocaleName(Locale locale) {
+    switch (locale.languageCode) {
+      case 'fr':
+        return trad.fr;
+      default:
+        return trad.en;
+    }
+  }
 }
