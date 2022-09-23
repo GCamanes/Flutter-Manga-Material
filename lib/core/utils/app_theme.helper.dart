@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mangamaterial/core/extensions/color.extension.dart';
 import 'package:mangamaterial/core/utils/app.colors.dart';
 
-/// See https://material.io/design/color/dark-theme.html
+/// Colors: https://material.io/design/color/dark-theme.html
+/// Text: https://material.io/design/typography/the-type-system.html
 
 abstract class AppThemeHelper {
-  // Light theme
   static ThemeData get getTheme => ThemeData(
         colorScheme: ColorScheme(
           brightness: Brightness.light,
@@ -22,9 +22,9 @@ abstract class AppThemeHelper {
           onSurface: AppColors.black.emphasisHigh,
           onError: AppColors.white,
         ),
+        textTheme: textTheme(),
       );
 
-  // Dark theme
   static ThemeData get getDarkTheme => ThemeData(
         colorScheme: ColorScheme(
           brightness: Brightness.dark,
@@ -43,5 +43,73 @@ abstract class AppThemeHelper {
         ),
         scaffoldBackgroundColor: AppColors.background,
         appBarTheme: const AppBarTheme(color: AppColors.surface),
+        textTheme: textTheme(),
+      );
+
+  static TextTheme textTheme() => const TextTheme(
+        headline1: TextStyle(
+          fontSize: 96,
+          letterSpacing: -1.5,
+          fontFamily: 'robotoLight',
+        ),
+        headline2: TextStyle(
+          fontSize: 60,
+          letterSpacing: -.5,
+          fontFamily: 'robotoLight',
+        ),
+        headline3: TextStyle(
+          fontSize: 48,
+          letterSpacing: 0,
+          fontFamily: 'robotoRegular',
+        ),
+        headline4: TextStyle(
+          fontSize: 34,
+          letterSpacing: -0.25,
+          fontFamily: 'robotoRegular',
+        ),
+        headline5: TextStyle(
+          fontSize: 24,
+          fontFamily: 'robotoRegular',
+        ),
+        headline6: TextStyle(
+          fontSize: 20,
+          letterSpacing: 0.15,
+          fontFamily: 'robotoMedium',
+        ),
+        subtitle1: TextStyle(
+          fontSize: 16,
+          letterSpacing: 0.15,
+          fontFamily: 'robotoRegular',
+        ),
+        subtitle2: TextStyle(
+          fontSize: 14,
+          letterSpacing: 0.1,
+          fontFamily: 'robotoMedium',
+        ),
+        bodyText1: TextStyle(
+          fontSize: 16,
+          letterSpacing: 0.5,
+          fontFamily: 'robotoRegular',
+        ),
+        bodyText2: TextStyle(
+          fontSize: 14,
+          letterSpacing: 0.25,
+          fontFamily: 'robotoRegular',
+        ),
+        button: TextStyle(
+          fontSize: 14,
+          letterSpacing: 1.25,
+          fontFamily: 'robotoMedium',
+        ),
+        caption: TextStyle(
+          fontSize: 12,
+          letterSpacing: 0.4,
+          fontFamily: 'robotoRegular',
+        ),
+        overline: TextStyle(
+          fontSize: 10,
+          letterSpacing: 1.5,
+          fontFamily: 'robotoRegular',
+        ),
       );
 }
