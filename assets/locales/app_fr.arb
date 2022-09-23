@@ -3,6 +3,8 @@
   "favorites": "Favoris",
   "settings": "Paramètres",
   "languages": "Langages",
+  "authorization": "Autorisations",
+  "dataTracking": "Collecte de données utilisateur",
 
   "en": "Anglais",
   "fr": "Français"

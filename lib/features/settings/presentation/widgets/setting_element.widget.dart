@@ -7,10 +7,12 @@ class SettingsElementWidget extends StatelessWidget {
     Key? key,
     required this.child,
     this.bottomBorder = true,
+    this.rightPadding = true,
   }) : super(key: key);
 
   final Widget child;
   final bool bottomBorder;
+  final bool rightPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,8 @@ class SettingsElementWidget extends StatelessWidget {
       child: Container(
         height: AppConstants.settingsRowHeight,
         alignment: Alignment.centerLeft,
-        padding: const EdgeInsets.only(
-          right: AppConstants.horizontalPadding,
+        padding: EdgeInsets.only(
+          right: rightPadding ? AppConstants.horizontalPadding : 0,
         ),
         decoration: bottomBorder
             ? BoxDecoration(

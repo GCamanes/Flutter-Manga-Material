@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mangamaterial/core/utils/app.contants.dart';
 
 class RadioSelectorWidget<T> extends StatelessWidget {
   const RadioSelectorWidget({
@@ -24,15 +23,11 @@ class RadioSelectorWidget<T> extends StatelessWidget {
           title,
           style: Theme.of(context).textTheme.subtitle1,
         ),
-        SizedBox(
-          width: AppConstants.horizontalPadding,
-          child: Radio(
-            activeColor: Theme.of(context).colorScheme.primary,
-            visualDensity: VisualDensity.compact,
-            value: value,
-            groupValue: groupValue,
-            onChanged: onChanged,
-          ),
+        Radio(
+          activeColor: Theme.of(context).colorScheme.primary,
+          value: value,
+          groupValue: groupValue,
+          onChanged: onChanged,
         ),
       ],
     );

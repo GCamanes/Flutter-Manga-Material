@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mangamaterial/core/extensions/context.extension.dart';
@@ -9,8 +8,8 @@ import 'package:mangamaterial/features/settings/presentation/widgets/radio_selec
 import 'package:mangamaterial/features/settings/presentation/widgets/setting_element.widget.dart';
 import 'package:mangamaterial/features/settings/presentation/widgets/settings_category.widget.dart';
 
-class LanguagesSettingsWidget extends StatelessWidget {
-  const LanguagesSettingsWidget({Key? key}) : super(key: key);
+class LanguageSettingsWidget extends StatelessWidget {
+  const LanguageSettingsWidget({Key? key}) : super(key: key);
 
   Widget _buildSelector(
     BuildContext context,
@@ -18,6 +17,7 @@ class LanguagesSettingsWidget extends StatelessWidget {
     Locale currentLocale,
   ) {
     return SettingsElementWidget(
+      rightPadding: false,
       child: RadioSelectorWidget<Locale>(
         title: context.getLocaleName(locale),
         value: locale,
