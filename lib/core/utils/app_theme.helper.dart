@@ -42,16 +42,18 @@ abstract class AppThemeHelper {
           onSurface: AppColors.white,
           onError: AppColors.black,
         ),
+        textTheme: textTheme(),
         scaffoldBackgroundColor: AppColors.background,
         appBarTheme: const AppBarTheme(color: AppColors.surface),
-        textTheme: textTheme(),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: AppColors.primary.material.shade200,
+        ),
       );
 
   static void setAndroidSystemNavigationBar(bool isDark) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        systemNavigationBarColor:
-            isDark ? AppColors.surface : AppColors.white,
+        systemNavigationBarColor: isDark ? AppColors.surface : AppColors.white,
         systemNavigationBarDividerColor:
             isDark ? AppColors.white : AppColors.black,
         systemNavigationBarIconBrightness:
