@@ -8,6 +8,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+      animationDuration: Duration.zero,
       routes: const [
         HomeRoute(),
         FavoritesRoute(),
