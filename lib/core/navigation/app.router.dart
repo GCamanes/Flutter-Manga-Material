@@ -4,6 +4,7 @@ import 'package:mangamaterial/core/navigation/app.router.gr.dart';
 import 'package:mangamaterial/core/navigation/main.page.dart';
 import 'package:mangamaterial/features/favorites/presentation/pages/favorites.page.dart';
 import 'package:mangamaterial/features/home/presentation/pages/home.page.dart';
+import 'package:mangamaterial/features/login/preqentation/pages/login.page.dart';
 import 'package:mangamaterial/features/settings/presentation/pages/settings.page.dart';
 import 'package:mangamaterial/features/splashscreen/presentation/pages/splashscreen.page.dart';
 import 'package:mangamaterial/get_it.injector.dart';
@@ -14,6 +15,10 @@ import 'package:mangamaterial/get_it.injector.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: SplashscreenPage, initial: true),
+    CustomRoute(
+      page: LoginPage,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
     AutoRoute(
       path: '/',
       page: MainPage,

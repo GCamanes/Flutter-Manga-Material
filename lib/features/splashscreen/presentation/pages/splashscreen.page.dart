@@ -21,7 +21,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
   void _goToMainPage() {
     Future<void>.delayed(
       const Duration(seconds: 2),
-      () => RouterHelper.router.replace(const MainRoute()),
+      () => RouterHelper.router.replace(const LoginRoute()),
     );
   }
 
