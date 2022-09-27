@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +15,7 @@ import 'package:mangamaterial/core/presentation/cubit/custom.cubit.state.dart';
 import 'package:mangamaterial/core/presentation/widget/cubit/app_cubits.listener.dart';
 import 'package:mangamaterial/core/presentation/widget/cubit/app_cubits.provider.dart';
 import 'package:mangamaterial/core/utils/app_theme.helper.dart';
+import 'package:mangamaterial/firebase_options.dart';
 import 'package:mangamaterial/get_it.injector.dart';
 
 late Locale initialLocale;
@@ -33,6 +35,11 @@ Future<void> _initApp() async {
 
   /// Force portrait orientation
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  /// Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 void main() async {

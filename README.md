@@ -17,3 +17,11 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 
 https://docs.flutter.dev/development/accessibility-and-localization/internationalization
 
+## Firebase
+
+https://firebase.google.com/docs/flutter/setup?platform=android
+
+to configure flutter fire run
+```
+flutterfire configure
+```
