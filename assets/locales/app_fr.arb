@@ -5,6 +5,9 @@
   "languages": "Langages",
   "authorization": "Autorisations",
   "dataTracking": "Collecte de données utilisateur",
+  "access": "Accès",
+  "location": "Localisation",
+  "microphone": "Microphone",
 
   "en": "Anglais",
   "fr": "Français"
