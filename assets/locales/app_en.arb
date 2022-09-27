@@ -1,6 +1,14 @@
 {
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "home": "Home",
+  "favorites": "Favorites",
+  "settings": "Settings",
+  "languages": "Languages",
+  "authorization": "Authorizations",
+  "dataTracking": "User data tracking",
+  "access": "Access",
+  "location": "Location",
+  "microphone": "Microphone",
+
+  "en": "English",
+  "fr": "French"
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mangamaterial/core/extensions/color.extension.dart';
 import 'package:mangamaterial/core/utils/app.colors.dart';
 
@@ -18,8 +19,8 @@ abstract class AppThemeHelper {
           error: AppColors.error,
           onPrimary: AppColors.white,
           onSecondary: AppColors.black,
-          onBackground: AppColors.black.emphasisMedium,
-          onSurface: AppColors.black.emphasisHigh,
+          onBackground: AppColors.black,
+          onSurface: AppColors.black,
           onError: AppColors.white,
         ),
         textTheme: textTheme(),
@@ -37,14 +38,26 @@ abstract class AppThemeHelper {
           error: AppColors.errorDark,
           onPrimary: AppColors.black,
           onSecondary: AppColors.black,
-          onBackground: AppColors.white.emphasisMedium,
-          onSurface: AppColors.white.emphasisHigh,
+          onBackground: AppColors.white,
+          onSurface: AppColors.white,
           onError: AppColors.black,
         ),
+        textTheme: textTheme(),
         scaffoldBackgroundColor: AppColors.background,
         appBarTheme: const AppBarTheme(color: AppColors.surface),
-        textTheme: textTheme(),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: AppColors.surface,
+          selectedItemColor: AppColors.primary.material.shade200,
+        ),
       );
+
+  static void setAndroidSystemNavigationBar(bool isDark) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        systemNavigationBarColor: isDark ? AppColors.surface : AppColors.white,
+      ),
+    );
+  }
 
   static TextTheme textTheme() => const TextTheme(
         headline1: TextStyle(

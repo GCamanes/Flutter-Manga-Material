@@ -1,3 +1,14 @@
 {
-  "helloWorld": "Bonjour le monde!"
+  "home": "Accueil",
+  "favorites": "Favoris",
+  "settings": "Paramètres",
+  "languages": "Langages",
+  "authorization": "Autorisations",
+  "dataTracking": "Collecte de données utilisateur",
+  "access": "Accès",
+  "location": "Localisation",
+  "microphone": "Microphone",
+
+  "en": "Anglais",
+  "fr": "Français"
 }
