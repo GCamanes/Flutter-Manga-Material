@@ -55,10 +55,6 @@ abstract class AppThemeHelper {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         systemNavigationBarColor: isDark ? AppColors.surface : AppColors.white,
-        systemNavigationBarDividerColor:
-            isDark ? AppColors.white : AppColors.black,
-        systemNavigationBarIconBrightness:
-            isDark ? Brightness.light : Brightness.dark,
       ),
     );
   }
