@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:mangamaterial/core/navigation/app.router.gr.dart';
 import 'package:mangamaterial/core/navigation/main.page.dart';
