@@ -13,5 +13,6 @@
   "fr": "French",
 
   "email": "Email",
-  "password": "Password"
+  "password": "Password",
+  "login": "Login"
 }

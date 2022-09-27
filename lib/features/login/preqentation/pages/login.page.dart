@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mangamaterial/core/extensions/context.extension.dart';
+import 'package:mangamaterial/core/presentation/widget/button.widget.dart';
 import 'package:mangamaterial/core/presentation/widget/text_field.widget.dart';
 import 'package:mangamaterial/core/utils/app.contants.dart';
 
@@ -34,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 300),
                 TextFieldWidget(
                   controller: _mailController,
+                  type: TextInputType.emailAddress,
                   label: context.trad.email,
                   icon: Icons.person,
                 ),
@@ -42,6 +44,13 @@ class _LoginPageState extends State<LoginPage> {
                   isObscure: true,
                   label: context.trad.password,
                   icon: Icons.lock,
+                ),
+                const SizedBox(height: 50),
+                ButtonWidget(
+                  label: context.trad.login,
+                  icon: Icons.login,
+                  onPressed: () {},
+                  expanded: true,
                 ),
               ],
             ),
