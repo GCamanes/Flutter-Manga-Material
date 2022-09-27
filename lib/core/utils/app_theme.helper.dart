@@ -46,6 +46,7 @@ abstract class AppThemeHelper {
         scaffoldBackgroundColor: AppColors.background,
         appBarTheme: const AppBarTheme(color: AppColors.surface),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: AppColors.surface,
           selectedItemColor: AppColors.primary.material.shade200,
         ),
       );
