@@ -10,5 +10,8 @@
   "microphone": "Microphone",
 
   "en": "Anglais",
-  "fr": "Français"
+  "fr": "Français",
+
+  "email": "Email",
+  "password": "Mot de passe"
 }
