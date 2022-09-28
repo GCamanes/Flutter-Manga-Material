@@ -6,13 +6,13 @@ import 'package:mangamaterial/features/login/data/models/user.model.dart';
 @Singleton(as:LoginRemoteDataSource)
 class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
   @override
-  UserModel getCurrentAppUser() {
+  UserModel getCurrentUser() {
     final User? user = FirebaseAuth.instance.currentUser;
     return UserModel.fromFireBaseUser(firebaseUser: user);
   }
 
   @override
-  Future<UserModel> loginAppUser({
+  Future<UserModel> login({
     required String email,
     required String password,
   }) async {
@@ -25,7 +25,8 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
   }
 
   @override
-  Future<void> logoutAppUser() async {
+  Future<bool> logout() async {
     await FirebaseAuth.instance.signOut();
+    return true;
   }
 }
