@@ -23,6 +23,18 @@ class CacheFailure extends Failure {
   const CacheFailure(String message) : super(message);
 }
 
+class FirebaseFailure extends Failure {
+  const FirebaseFailure(this.code, String message) : super(message);
+
+  final String code;
+}
+
+class FirebaseAuthFailure extends Failure {
+  const FirebaseAuthFailure(this.code, String message) : super(message);
+
+  final String code;
+}
+
 class UnknownErrorFailure extends Failure {
   const UnknownErrorFailure(String message) : super(message);
 }
