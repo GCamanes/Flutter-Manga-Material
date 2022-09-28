@@ -16,7 +16,7 @@ import 'package:flutter/material.dart' as _i8;
 
 import '../../features/favorites/presentation/pages/favorites.page.dart' as _i5;
 import '../../features/home/presentation/pages/home.page.dart' as _i4;
-import '../../features/login/preqentation/pages/login.page.dart' as _i2;
+import '../../features/login/presentation/pages/login.page.dart' as _i2;
 import '../../features/settings/presentation/pages/settings.page.dart' as _i6;
 import '../../features/splashscreen/presentation/pages/splashscreen.page.dart'
     as _i1;
