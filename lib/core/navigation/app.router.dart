@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:mangamaterial/core/navigation/app.router.gr.dart';
+import 'package:mangamaterial/core/navigation/auth.guard.dart';
 import 'package:mangamaterial/core/navigation/main.page.dart';
 import 'package:mangamaterial/features/favorites/presentation/pages/favorites.page.dart';
 import 'package:mangamaterial/features/home/presentation/pages/home.page.dart';
@@ -21,6 +22,7 @@ import 'package:mangamaterial/get_it.injector.dart';
     AutoRoute(
       path: '/',
       page: MainPage,
+      guards: [AuthGuard],
       children: [
         AutoRoute(
           path: 'home',

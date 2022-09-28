@@ -26,11 +26,7 @@ class AppCubitsProvider extends StatelessWidget {
           create: (context) => AppLifeCycleCubit(),
         ),
         BlocProvider<LoginCubit>(
-          create: (context) => LoginCubit(
-            getCurrentUser: getIt(),
-            login: getIt(),
-            logout: getIt(),
-          ),
+          create: (context) => getIt(),
         ),
         BlocProvider<LocalizationCubit>(
           create: (context) => LocalizationCubit(

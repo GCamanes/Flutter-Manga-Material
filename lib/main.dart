@@ -21,9 +21,6 @@ import 'package:mangamaterial/get_it.injector.dart';
 late Locale initialLocale;
 
 Future<void> _initApp() async {
-  /// Register AppRouter singleton (navigating without context available)
-  getIt.registerSingleton<AppRouter>(AppRouter());
-
   /// TODO: use local storage to init locale later
   String defaultLocaleName = Platform.localeName;
   if (defaultLocaleName.contains('_')) {
@@ -33,13 +30,18 @@ Future<void> _initApp() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// Force portrait orientation
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
   /// Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  /// Init get it dependencies
+  configureDependencies();
+  /// Register AppRouter singleton (navigating without context available)
+  getIt.registerSingleton<AppRouter>(AppRouter(authGuard: getIt()));
+
+  /// Force portrait orientation
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 void main() async {

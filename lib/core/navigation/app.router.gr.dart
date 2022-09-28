@@ -20,11 +20,16 @@ import '../../features/login/presentation/pages/login.page.dart' as _i2;
 import '../../features/settings/presentation/pages/settings.page.dart' as _i6;
 import '../../features/splashscreen/presentation/pages/splashscreen.page.dart'
     as _i1;
+import 'auth.guard.dart' as _i9;
 import 'main.page.dart' as _i3;
 
 class AppRouter extends _i7.RootStackRouter {
-  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
+  AppRouter(
+      {_i8.GlobalKey<_i8.NavigatorState>? navigatorKey,
+      required this.authGuard})
       : super(navigatorKey);
+
+  final _i9.AuthGuard authGuard;
 
   @override
   final Map<String, _i7.PageFactory> pagesMap = {
@@ -62,7 +67,9 @@ class AppRouter extends _i7.RootStackRouter {
   List<_i7.RouteConfig> get routes => [
         _i7.RouteConfig(SplashscreenRoute.name, path: '/'),
         _i7.RouteConfig(LoginRoute.name, path: '/login-page'),
-        _i7.RouteConfig(MainRoute.name, path: '/', children: [
+        _i7.RouteConfig(MainRoute.name, path: '/', guards: [
+          authGuard
+        ], children: [
           _i7.RouteConfig(HomeRoute.name, path: 'home', parent: MainRoute.name),
           _i7.RouteConfig(FavoritesRoute.name,
               path: 'favorites', parent: MainRoute.name),

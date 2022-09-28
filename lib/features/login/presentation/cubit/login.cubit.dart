@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 import 'package:mangamaterial/core/errors/failure.dart';
 import 'package:mangamaterial/core/presentation/cubit/custom.cubit.dart';
 import 'package:mangamaterial/core/presentation/cubit/custom.cubit.state.dart';
@@ -11,6 +11,7 @@ import 'package:mangamaterial/features/login/domain/use_cases/login.use_case.dar
 import 'package:mangamaterial/features/login/domain/use_cases/logout.use_case.dart';
 import 'package:mangamaterial/features/login/presentation/cubit/login.cubit.state.dart';
 
+@singleton
 class LoginCubit extends CustomCubit<CubitState> {
   LoginCubit({
     required GetCurrentUserUseCase getCurrentUser,
@@ -19,28 +20,11 @@ class LoginCubit extends CustomCubit<CubitState> {
   })  : _getCurrentUser = getCurrentUser,
         _login = login,
         _logout = logout,
-        super(LoggedOutState()) {
-    _streamSubscription = FirebaseAuth.instance
-        .authStateChanges()
-        .listen(_handleAuthStateChanges);
-  }
+        super(LoggedOutState());
 
-  late StreamSubscription<User?> _streamSubscription;
   final GetCurrentUserUseCase _getCurrentUser;
   final LoginUseCase _login;
   final LogoutUseCase _logout;
-
-  @override
-  Future<void> close() {
-    _streamSubscription.cancel();
-    return super.close();
-  }
-
-  void _handleAuthStateChanges(User? user) {
-    if (user == null) {
-      emit(LoggedOutState());
-    }
-  }
 
   Future<void> getCurrentUser() async {
     emit(LoginLoadingState());
@@ -61,8 +45,9 @@ class LoginCubit extends CustomCubit<CubitState> {
     emit(_eitherSuccessOrErrorState(failureOrAppUser));
   }
 
-  void logoutUser() {
-    _logout.execute();
+  Future<void> logoutUser() async {
+    await _logout.execute();
+    emit(LoggedOutState());
   }
 
   CubitState _eitherSuccessOrErrorState(

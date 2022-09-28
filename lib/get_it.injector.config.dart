@@ -8,6 +8,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import 'core/navigation/auth.guard.dart' as _i11;
 import 'features/login/data/datasources/login.remote_datasource.dart' as _i3;
 import 'features/login/data/datasources/login.remote_datasource.impl.dart'
     as _i4;
@@ -15,8 +16,9 @@ import 'features/login/data/repositories/login.repository.impl.dart' as _i6;
 import 'features/login/domain/repositories/login.repository.dart' as _i5;
 import 'features/login/domain/use_cases/get_current_user.use_case.dart' as _i9;
 import 'features/login/domain/use_cases/login.use_case.dart' as _i7;
-import 'features/login/domain/use_cases/logout.use_case.dart'
-    as _i8; // ignore_for_file: unnecessary_lambdas
+import 'features/login/domain/use_cases/logout.use_case.dart' as _i8;
+import 'features/login/presentation/cubit/login.cubit.dart'
+    as _i10; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -31,5 +33,10 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       _i8.LogoutUseCase(get<_i5.LoginRepository>()));
   gh.singleton<_i9.GetCurrentUserUseCase>(
       _i9.GetCurrentUserUseCase(get<_i5.LoginRepository>()));
+  gh.singleton<_i10.LoginCubit>(_i10.LoginCubit(
+      getCurrentUser: get<_i9.GetCurrentUserUseCase>(),
+      login: get<_i7.LoginUseCase>(),
+      logout: get<_i8.LogoutUseCase>()));
+  gh.singleton<_i11.AuthGuard>(_i11.AuthGuard(get<_i10.LoginCubit>()));
   return get;
 }
