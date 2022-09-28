@@ -11,19 +11,19 @@ class LoggedInState extends CubitState {
 
   @override
   List<Object> get props => <Object>[
-    ...props,
+    ...super.props,
     user,
   ];
 }
 
 class LoggedOutState extends CubitState {
-  LoggedOutState({this.failure});
+  LoggedOutState(this.failure);
 
-  final Failure? failure;
+  final Failure failure;
 
   @override
-  List<Object?> get props => <Object?>[
-    ...props,
+  List<Object> get props => <Object>[
+    ...super.props,
     failure,
   ];
 }

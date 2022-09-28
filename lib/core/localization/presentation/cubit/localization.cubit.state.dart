@@ -9,7 +9,7 @@ class LocalizationState extends CubitState {
 
   @override
   List<Object> get props => <Object>[
-    ...props,
+    ...super.props,
     locale,
   ];
 }

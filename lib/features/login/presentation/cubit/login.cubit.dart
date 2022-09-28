@@ -20,7 +20,7 @@ class LoginCubit extends CustomCubit<CubitState> {
   })  : _getCurrentUser = getCurrentUser,
         _login = login,
         _logout = logout,
-        super(LoggedOutState());
+        super(LoggedOutState(const NoFailure()));
 
   final GetCurrentUserUseCase _getCurrentUser;
   final LoginUseCase _login;
@@ -33,7 +33,7 @@ class LoginCubit extends CustomCubit<CubitState> {
     emit(_eitherSuccessOrErrorState(failureOrAppUser));
   }
 
-  Future<void> loginUser({
+  Future<void> login({
     required String email,
     required String password,
   }) async {
@@ -45,9 +45,9 @@ class LoginCubit extends CustomCubit<CubitState> {
     emit(_eitherSuccessOrErrorState(failureOrAppUser));
   }
 
-  Future<void> logoutUser() async {
+  Future<void> logout() async {
     await _logout.execute();
-    emit(LoggedOutState());
+    emit(LoggedOutState(const NoFailure()));
   }
 
   CubitState _eitherSuccessOrErrorState(
@@ -55,7 +55,7 @@ class LoginCubit extends CustomCubit<CubitState> {
   ) {
     return failureOrAppUser.fold(
       // if Left
-      (Failure failure) => LoggedOutState(failure: failure),
+      (Failure failure) => LoggedOutState(failure),
       // if Right
       (UserEntity user) => LoggedInState(user),
     );

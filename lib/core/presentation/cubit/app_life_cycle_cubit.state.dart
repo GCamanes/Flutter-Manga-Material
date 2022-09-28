@@ -7,7 +7,7 @@ class BackgroundState extends CubitState {
 
   @override
   List<Object> get props => <Object>[
-    ...props,
+    ...super.props,
     since,
   ];
 }
@@ -19,7 +19,7 @@ class ForegroundState extends CubitState {
 
   @override
   List<Object> get props => <Object>[
-    ...props,
+    ...super.props,
     backgroundTime,
   ];
 }

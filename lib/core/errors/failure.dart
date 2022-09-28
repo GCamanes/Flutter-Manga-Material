@@ -7,9 +7,12 @@ abstract class Failure extends Equatable {
 
   @override
   List<Object> get props => <Object>[
-        ...props,
         message,
       ];
+}
+
+class NoFailure extends Failure {
+  const NoFailure() : super('');
 }
 
 class EmptyFieldFailure extends Failure {
