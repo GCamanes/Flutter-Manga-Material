@@ -5,6 +5,8 @@ import 'package:mangamaterial/core/localization/presentation/cubit/localization.
 import 'package:mangamaterial/core/presentation/cubit/app_life_cycle_cubit.dart';
 import 'package:mangamaterial/core/presentation/cubit/custom.cubit.dart';
 import 'package:mangamaterial/core/presentation/cubit/custom.cubit.state.dart';
+import 'package:mangamaterial/features/login/presentation/cubit/login.cubit.dart';
+import 'package:mangamaterial/get_it.injector.dart';
 
 class AppCubitsProvider extends StatelessWidget {
   const AppCubitsProvider({
@@ -22,6 +24,13 @@ class AppCubitsProvider extends StatelessWidget {
       providers: <BlocProvider<CustomCubit<CubitState>>>[
         BlocProvider<AppLifeCycleCubit>(
           create: (context) => AppLifeCycleCubit(),
+        ),
+        BlocProvider<LoginCubit>(
+          create: (context) => LoginCubit(
+            getCurrentUser: getIt(),
+            login: getIt(),
+            logout: getIt(),
+          ),
         ),
         BlocProvider<LocalizationCubit>(
           create: (context) => LocalizationCubit(

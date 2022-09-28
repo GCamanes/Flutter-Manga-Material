@@ -13,4 +13,9 @@ abstract class CustomCubit<State> extends Cubit<State> {
       super.emit(state);
     }
   }
+
+  @override
+  Future<void> close() async {
+    super.close();
+  }
 }
